@@ -56,7 +56,7 @@ ScopedThreadPools GetThreadPools(ThreadPoolFactory *thread_pool_factory) {
   } else {
     VLOG(1) << "Predict failed: " << status.error_message();
   }
-  RecordModelRequestCount(request->model_spec().name(), tf_status);
+  RecordModelRequestCount(request->model_spec().name(), "Predict", tf_status);
 
   return status;
 }
@@ -96,7 +96,7 @@ ScopedThreadPools GetThreadPools(ThreadPoolFactory *thread_pool_factory) {
   } else {
     VLOG(1) << "Classify request failed: " << status.error_message();
   }
-  RecordModelRequestCount(request->model_spec().name(), tf_status);
+  RecordModelRequestCount(request->model_spec().name(), "Classify", tf_status);
 
   return status;
 }
@@ -125,7 +125,7 @@ ScopedThreadPools GetThreadPools(ThreadPoolFactory *thread_pool_factory) {
   } else {
     VLOG(1) << "Regress request failed: " << status.error_message();
   }
-  RecordModelRequestCount(request->model_spec().name(), tf_status);
+  RecordModelRequestCount(request->model_spec().name(), "Regress", tf_status);
 
   return status;
 }

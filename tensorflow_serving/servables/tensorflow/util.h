@@ -41,7 +41,8 @@ monitoring::Counter<1>* GetExampleCountTotal();
 }  // namespace internal
 
 // Metrics by model
-void RecordModelRequestCount(const string& model_name, const Status& status);
+void RecordModelRequestCount(const string& model_name, const string& api,
+                             const Status& status);
 
 // Enable/disable `method_name` checks on `SignatureDef` for predict, classify,
 // regress APIs. Native TF2 models use fixed `method_name` for all APIs, and

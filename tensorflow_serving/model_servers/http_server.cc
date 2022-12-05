@@ -194,7 +194,7 @@ class RestApiRequestDispatcher {
       VLOG(1) << "Error Processing HTTP/REST request: " << req->http_method()
               << " " << req->uri_path() << " Error: " << status.ToString();
     }
-    RecordModelRequestCount(model_name, status);
+    RecordModelRequestCount(model_name, method, status);
     req->ReplyWithStatus(http_status);
   }
 
